@@ -6,25 +6,96 @@
     <title>Document</title>
     <script>
 
-        function vuoto1() {
-            var t1 = document.getElementsById("nome");
-            var er1 = document.getElementById("err1")
-            if (t1.value==="") {
-                er1.innerHTML = "**Field Empty**"                
+        function resetForm(){
+            
+            document.getElementById("nome").value = "";
+            document.getElementById("cognome").value = "";
+            document.getElementById("matricola").value = "";
+            document.getElementById("Regione").value = "None";
+            document.getElementById("email").value = "";
+            document.getElementById("telefono").value = "";
+            document.getElementById("richieste").value = "";
+
+            document.getElementById("err1").innerHTML = "";
+            document.getElementById("err2").innerHTML = "";
+            document.getElementById("err3").innerHTML = "";
+            document.getElementById("err4").innerHTML = "";
+            document.getElementById("err5").innerHTML = "";
+            document.getElementById("err6").innerHTML = "";
+            document.getElementById("err7").innerHTML = "";
+        }
+
+        function void1(){
+            var t1 = document.getElementById("nome");
+            var err1 = document.getElementById("err1");
+
+            if (t1.value==""){
+                err1.innerHTML = "**Field Empty**";                
+            } else {
+                err1.innerHTML = "";
             }
 
         }
-        
-        function noselection() {
-            var s = document.getElementById('Regione');
-            var sv = s.value;
+
+        function void2(){
+            var t2 = document.getElementById("cognome");
+            var err2 = document.getElementById("err2");
+
+            if (t2.value==""){
+                err2.innerHTML = "**Field Empty**";                
+            } else {
+                err2.innerHTML = "";
+            }
+
+
         }
 
-        function numbers() {
+        function void3(){
+            var t3 = document.getElementById("email");
+            var err5 = document.getElementById("err5");
+
+            if (t3.value==""){
+                err5.innerHTML = "**Field Empty**";                
+            } else {
+                err5.innerHTML = "";
+            }
+
+
+        }
+
+        function void4(){
+            var t4 = document.getElementById("telefono");
+            var err6 = document.getElementById("err6");
+
+            if (t4.value==""){
+                err6.innerHTML = "**Field Empty**";                
+            } else {
+                err6.innerHTML = "";
+            }
+
+
+        }
+
+
+        function noselection(){
+            var s = document.getElementById('Regione');
+            var sv = s.value;
+            var err4 = document.getElementById("err4");
+
+            if (sv === "None" || sv === "") {
+                err4.innerHTML = "**Please select a region**";
+            } else {
+                err4.innerHTML = "";
+            }
+        }
+
+        function numbers(){
             var n = document.getElementById('matricola')
 
-            if (/\D+/.test(n)) {
-
+            if (!/^\d+$/.test(n.value)) {
+                err3.innerHTML = "**Only numbers allowed**";
+            } else {
+                err3.innerHTML = "";
             }
 
         }
@@ -35,9 +106,29 @@
     <h1 align="center">DATI PERSONALI</h1><br><br>
     <div align="center">
         <table style="text-align: left;">
-            <tr><td align="right">Nome: </td><td><input class="text" type="text" maxlength="40" style="width: 11cm;" id="nome"></td><div id="err1"></div></tr><br>
-            <tr><td align="right">Cognome: </td><td><input class="text" type="text" maxlength="30" style="width: 11cm;"></td><div id="err2"></div></tr><br>
-            <tr><td align="right">Matricola: </td><td><input class="text" type="text" maxlength="12" style="width: 11cm;"></td><div id="err3"></div></tr><br>
+            <tr>
+                <td align="right">Nome: </td>
+                <td><input class="text" type="text" maxlength="40" style="width: 11cm;" id="nome"></td>
+            </tr><br>
+            <tr>
+                <td></td>
+                <td><div id="err1" style="color: red;"></div></td></tr>
+            <tr>
+                <td align="right">Cognome: </td>
+                <td><input class="text" type="text" maxlength="30" style="width: 11cm;" id="cognome"></td>
+            </tr><br>
+            <tr>
+                <td></td>
+                <td><div id="err2" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td align="right">Matricola: </td>
+                <td><input class="text" type="text" maxlength="12" style="width: 11cm;" id="matricola"></td>
+            </tr><br>
+            <tr>
+                <td></td>
+                <td><div id="err3" style="color: red;"></div></td>
+            </tr>
             <tr>   
                 <td align="right">Regione di residenza: </td>
                 <td>
@@ -63,19 +154,41 @@
                         <option value="Valle d'Aosta">Valle d'Aosta</option>
                         <option value="Veneto">Veneto</option>
                     </select> 
-                    <div id="err4"></div>
                 </td>
             </tr>
-            <tr><td align="right">Email: </td><td><input id="email" type="text" maxlength="30" style="width: 11cm;"></td><div id="err5"></div></tr>
-            <tr><td align="right">Telefono: </td><td><input id="telefono" type="text" maxlength="15" style="width: 11cm;"></td><div id="err6"></div></tr>
+            <tr>
+                <td></td>
+                <td><div id="err4" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td align="right">Email: </td>
+                <td><input id="email" type="text" maxlength="30" style="width: 11cm;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><div id="err5" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td align="right">Telefono: </td>
+                <td><input id="telefono" type="text" maxlength="15" style="width: 11cm;"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><div id="err6" style="color: red;"></div></td>
+            </tr>
             <tr>
                 <td align="right">Richieste Particolari:</td>
-                <td><textarea name="Richieste" id="richieste" rows="12" cols="60"></textarea><div id="err7"></div></td>
+                <td><textarea name="Richieste" id="richieste" rows="12" cols="60"></textarea></td>
             </tr>
-            <tr><td align="center"><button align="center" style="width: 4cm;" id="Invio" onclick="vuoto1()">Invio</button></td><td align="center"><button align="center" id="reset" style="width: 6cm;">Reset</button></td></tr>
+            <tr>
+                <td></td>
+                <td><div id="err7" style="color: red;"></div></td>
+            </tr>
+            <tr>
+                <td align="center"><button align="center" onclick="void1(); void2(); void3(); void4(); noselection(); numbers()" style="width: 4cm;" id="Invio">Invio</button></td>
+                <td align="center"><button align="center" id="reset" style="width: 6cm;" onclick="resetForm()">Reset</button></td>
+            </tr>
         </table>
     </div>
-    <script>
-    </script>
 </body>
 </html>
