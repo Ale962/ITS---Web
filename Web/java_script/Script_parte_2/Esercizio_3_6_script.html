@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="expose"></div>
+
+    <script>
+        let a = 2;
+
+        let x = 1 + (a *= 2); 
+        
+        // la variabile a è sempre uguale a 2 e x invece è uguale a 5
+
+        document.getElementById("expose").innerHTML = "La variabile x è uguale a " + x + " dopo le operazioni mentre a è uguale a " + a 
+        
+    </script>
+</body>
+</html>

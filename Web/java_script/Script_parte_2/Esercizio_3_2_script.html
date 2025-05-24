@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="Età"></div>
+    <div id="100 Anni"></div>
+
+    <script>
+
+        let year1 = parseInt(prompt("Scrivere anno corrente: "))
+        let year2 = parseInt(prompt("Scrivere anno di nascita: "))
+
+        if (year1 > year2) {
+
+            var age = year1 - year2
+            
+        } else {
+            
+            var age = year2 - year1
+
+        }
+
+        document.getElementById("Età").innerHTML = "L'età è " + age
+        document.getElementById("100 Anni").innerHTML = "Per raggiungere 100 anni occorreranno " + (100-age) + " anni"
+
+    </script>
+</body>
+</html>

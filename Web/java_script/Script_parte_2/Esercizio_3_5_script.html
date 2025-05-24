@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result"></div>
+
+    <script>
+
+        let a = 1, b = 1;
+
+        let c = ++a; // 2
+
+        let d = b++; // 1
+
+        document.getElementById("result").innerHTML = "La prima variabile, c, sara uguale a "+ c +  ", mentre la seconda variabile, d, sarà uguale a " + d + ", mentre la variabile b ed a dopo le esecuzioni saranno uguali, rispettivamente, a " + b + " e " + a + " con la differenza che quando incremento b non incremento anche d per via della scrittura b++"
+    </script>
+</body>
+</html>

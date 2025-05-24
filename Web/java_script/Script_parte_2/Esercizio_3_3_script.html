@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="Ora"></div>
+
+    <script>
+
+        let seconds = parseInt(prompt("Scrivere il numero di secondi"));
+
+        let hours = parseInt(seconds/60/60);
+        
+        let resto = seconds % 3600;
+
+        let minuts = parseInt(resto/60);
+
+        let second = resto % 60;
+
+        alert(hours + " "  + minuts + " " + second)
+        
+        document.getElementById("Ora").innerHTML = hours + " ore " + minuts + " minuti " + second + " secondi";
+
+    </script>
+
+</body>
+</html>

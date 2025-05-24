@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="Risultato"></div>
+    <br>
+    <br>
+    <div id="Esito"></div>
+
+    <script>
+        var name = prompt("Inserisci il tuo nome: ");
+
+        document.getElementById("Risultato").innerHTML = "Ciao " + name;
+
+        var num1 = prompt("Inserisci un numero: ");
+        var num2 = prompt("inserisci un numero: ");
+
+        var n1 = parseInt(num1)
+        var n2 = parseInt(num2)
+
+
+        document.getElementById("Esito").innerHTML = "La somma è uguale a " + (n1 + n2)
+        
+    </script>
+</body>
+</html>
