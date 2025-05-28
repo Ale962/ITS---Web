@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.1</title>
+</head>
+<body>
+    <div id="risultato"></div>
+    <script>
+        function equ(a, b) {
+
+            if (a === b) {
+                //return true
+
+                document.getElementById("risultato").innerHTML = "Il risultato della uglianza è " + true
+            } else {
+                //eturn false
+                document.getElementById("risultato").innerHTML = "Il risultato della uglianza è " + false
+            }            
+
+        }
+
+        let x = prompt("Primo parametro")
+        let y = prompt("Secondo parametro")
+        equ(x, y)
+
+    </script>
+</body>
+</html>

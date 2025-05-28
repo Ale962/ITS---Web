@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esercizio 5.2</title>
+</head>
+<body>
+    <div id="settimana"></div>
+    <script>
+        function checkInt(param) {
+            if (param>0 && param <8) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        let x = parseInt(prompt("Inserisci il giorno della settimana"))
+        alert(x);
+        if (checkInt(x) == true) {
+            switch (x) {
+                case 1:
+                    document.getElementById("settimana").innerHTML = "1 = Lunedì"
+                    break;
+                case 2:
+                    document.getElementById("settimana").innerHTML = "2 = Martedì"
+                    break;
+                case 3:
+                    document.getElementById("settimana").innerHTML = "3 = Mercoledì"
+                    break;
+                case 4:
+                    document.getElementById("settimana").innerHTML = "4 = Giovedì"
+                    break;
+                case 5:
+                    document.getElementById("settimana").innerHTML = "5 = Venerdì"
+                    break;
+                case 6:
+                    document.getElementById("settimana").innerHTML = "6 = Sabato"
+                    break;
+                case 7:
+                    document.getElementById("settimana").innerHTML = "7 = Domenica"
+                    break;
+                default:
+
+                    break;
+            }
+        } else {
+            document.getElementById("settimana").innerHTML = "Out of the range of the week"
+        }
+    </script>
+</body>
+</html>
