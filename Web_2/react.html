@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        const rootElement=document.querySelector("#root");
+         const root =ReactDOM.createRoot(rootElement);
+         const e=React.createElement;
+         const h1=e("h1",{ key: 'h1',
+            style:{
+                color:"green",
+                width:"300px"
+            },
+            className:"big",
+            onClick:ele=>{console.log(ele.target)} // Ogni volta che abbiamo una funzione associata a un evento riceve in parametro l'evento esteso
+         },"Ciao sono un H1");
+
+         const ul=e('ul', {key:'ul'}, [
+            e('li',{key:'li1'},'Python'), 
+            e('li', {key:'li2'}, 'HTML'), 
+            e('li',{key:'li3'},'UML')
+        ])
+
+        const main=e('main',{},[h1, ul])
+        console.log(rootElement);
+        root.render(main);
+    </script>
+</body>
+</html>

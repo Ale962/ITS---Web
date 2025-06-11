@@ -3,26 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Esercizio 5.3</title>
 </head>
-<body>
-    <h1>Gioco: Indovina il numero!</h1>
-    <table>
-        <tr>
-            <td><input type="text" id="tentativo"></td>
-            <td><button>Controlla</button></td>
-        </tr>
-        <tr>
-            <td>Tentativi: </td>
-            <td><input type="text" id="conteggio"></td>
-        </tr>
-        <tr>
-            <td><button>Nuovo Gioco</button></td>
-        </tr>
-    </table>
-    <div></div>
+<body style="text-align: center; background-color: lightgray;">
+    <div style="text-align: center;">
+        <h1 style="color: aqua; text-shadow: 2px 2px 2px black;">Gioco: Indovina il numero!</h1>
+        <table align="center">
+            <tr style="text-align: center;">
+                <td><input type="text" id="tentativo" style="box-shadow: 1px 1px 4px black;"></td>
+                <td id="guess"></td>
+                <td><button onclick="check();" style="box-shadow: 1px 1px 4px black;">Controlla</button></td>
+            </tr>
+            <tr style="text-align: center;">
+                <td style="color: red;">Tentativi: </td>
+                <td><input type="text" id="conteggio" style="box-shadow: 1px 1px 4px black;"></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <div><button style="box-shadow: 0px 0px 4px;" onclick="window.location.reload()">Nuovo Gioco</button></div>
+        <br>
+        <div align="center" id="result1" style="text-justify: auto; text-shadow: 0px 0px 2px black; color: blue;"></div>
+        <div align="center" id="result2" style="text-justify: auto; text-shadow: 0px 0px 2px #800020; color: red;"></div>
+    </div>
     <script>
+        let counter = 10
+        let random = Math.floor(Math.random()*100)
+        let gameOver = false;
 
-    </script>
+        document.getElementById("conteggio").value = counter;
+
+        function check() {
+            if (gameOver) return;
+
+            let num = parseInt(document.getElementById("tentativo").value);
+            if (isNaN(num)) {
+                document.getElementById("guess").innerHTML = "Inserisci un numero valido!";
+                return;
+            }
+
+            if (num === random) {
+                document.getElementById("guess").innerHTML = "You got it!!";
+                let win = document.createElement("div");
+                win.innerHTML = "Great! You have won the game!<br>Hit the new game button to start a new game!";
+                document.getElementById("result1").appendChild(win);
+                gameOver = true;
+            } else {
+                if (num < random) {
+                    document.getElementById("guess").innerHTML = "Too low! Increase your guess!";
+                    } else {
+                    document.getElementById("guess").innerHTML = "Too high! Decrease your guess!";
+                    }
+                counter--;
+                document.getElementById("conteggio").value = counter;
+
+                if (counter === 0) {
+                let lose = document.createElement("div");
+                lose.innerHTML = "Bad Luck! You have lost the game!<br>Better Luck next time!<br>Hit the new game button to start a new game!";
+                document.getElementById("result2").appendChild(lose);
+                gameOver = true;
+                }
+            }
+        }
+
+//        function control() {
+//            let num = parseInt(document.getElementById("tentativo").value)
+//            check = false
+//            if (num === random) {
+//                check = true
+//                    document.getElementById("guess").innerHTML = "You got it!!"
+//            } else {
+//                if (num < random) {
+//                    document.getElementById("guess").innerHTML = "Too low! Increase your guess!"
+//                } else {
+//                    document.getElementById("guess").innerHTML = "Too high! Decrease your guess!"
+//                }
+//            }
+//            if (check === true) {
+//                var win = document.createElement("div")
+//                win.innerHTML = "Great! You have won the game!<br>Hit the new game button to start a new game!"
+//                document.getElementById("result1").appendChild(win)
+//            }
+//        }
+
+
+//        function count(num = counter) {
+//            counter -= 1
+//            if (counter === 0) {
+//                var lose = document.createElement("div")
+//                lose.innerHTML = "Bad Luck! You have lost the game!<br>Better Luck next time!<br>Hit the new game button to start a new game!"
+//                document.getElementById("result2").appendChild(lose)
+//            }
+//        }
+    </script> 
 </body>
 </html>
